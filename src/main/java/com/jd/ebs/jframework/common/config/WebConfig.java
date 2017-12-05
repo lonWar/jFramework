@@ -1,5 +1,6 @@
 package com.jd.ebs.jframework.common.config;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -18,6 +19,5 @@ import javax.servlet.annotation.MultipartConfig;
 @EnableAspectJAutoProxy
 @EnableAsync
 @EnableScheduling
-@MultipartConfig(location = "org.springframework.web.multipart.commons.CommonsMultipartResolver", maxFileSize = 10240)
 public class WebConfig {
 }

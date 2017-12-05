@@ -1,8 +1,10 @@
 package com.jd.ebs.jframework.test.controller;
 
+import com.jd.ebs.jframework.test.mapper.UserTestMapper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +15,9 @@ import java.util.Map;
  */
 @RestController
 public class TestController {
+
+    @Resource
+    private UserTestMapper userTestMapper;
 
     @RequestMapping("/")
     Object home() {
@@ -26,6 +31,11 @@ public class TestController {
         rMap.put("msg", "成功");
         rMap.put("data", null);
         return rMap;
+    }
+
+    @RequestMapping("/user/list")
+    Object userList() {
+        return userTestMapper.selectAll();
     }
 
 }
