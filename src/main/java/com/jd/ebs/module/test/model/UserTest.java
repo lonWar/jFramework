@@ -1,6 +1,6 @@
-package com.jd.ebs.jframework.test.model;
+package com.jd.ebs.module.test.model;
 
-import com.jd.ebs.jframework.test.model.base.AutoIncrementIdModel;
+import com.jd.ebs.jframework.model.AutoIncrementIdModel;
 
 import javax.persistence.Table;
 import java.io.Serializable;

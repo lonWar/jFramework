@@ -1,6 +1,7 @@
-package com.jd.ebs.jframework.test.mapper;
+package com.jd.ebs.module.test.mapper;
 
-import com.jd.ebs.jframework.test.model.UserTest;
+import com.jd.ebs.jframework.mapper.MyMapper;
+import com.jd.ebs.module.test.model.UserTest;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 

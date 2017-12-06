@@ -1,7 +1,11 @@
-package com.jd.ebs.jframework.test.controller;
+package com.jd.ebs.module.test.controller;
 
-import com.jd.ebs.jframework.test.mapper.UserTestMapper;
+import com.jd.ebs.jframework.web.BaseController;
+import com.jd.ebs.jframework.web.ResponseObject;
+import com.jd.ebs.module.test.mapper.UserTestMapper;
+import com.jd.ebs.module.test.service.UserTestService;
 import com.jd.oa.api.service.ProcessCenterService;
+import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,10 +19,10 @@ import java.util.Map;
  * @date 2017/12/1
  */
 @RestController
-public class TestController {
+public class TestController extends BaseController {
 
     @Resource
-    private UserTestMapper userTestMapper;
+    private UserTestService userTestService;
 
     @Resource
     private ProcessCenterService processCenterService;
@@ -37,15 +41,22 @@ public class TestController {
         return rMap;
     }
 
-    @RequestMapping("/user/list")
+    @RequestMapping("/test/user/list")
     Object userList() {
-        return userTestMapper.selectAll();
+        return userTestService.getAllUser();
     }
 
     @RequestMapping("/test/oa/request")
     Object requestPAFFormDefinition() {
         String reqXml = processCenterService.requestPAFFormDefinition("bd00aeb7450b486e9e5e4d1a1a3aba28");
         return reqXml;
+    }
+
+    @RequestMapping("/test/i18n")
+    ResponseObject international() {
+//        String msg = messageSource.getMessage("response.error.1001", null, Locale.US);
+//        return getSuccessResult(msg);
+        return getFailureResult(1001);
     }
 
 }

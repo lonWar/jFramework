@@ -1,4 +1,4 @@
-package com.jd.ebs.jframework.test.model.base;
+package com.jd.ebs.jframework.model;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
