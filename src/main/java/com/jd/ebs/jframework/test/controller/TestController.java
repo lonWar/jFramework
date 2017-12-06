@@ -1,6 +1,7 @@
 package com.jd.ebs.jframework.test.controller;
 
 import com.jd.ebs.jframework.test.mapper.UserTestMapper;
+import com.jd.oa.api.service.ProcessCenterService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,9 @@ public class TestController {
     @Resource
     private UserTestMapper userTestMapper;
 
+    @Resource
+    private ProcessCenterService processCenterService;
+
     @RequestMapping("/")
     Object home() {
         return "Hello World!";
@@ -36,6 +40,12 @@ public class TestController {
     @RequestMapping("/user/list")
     Object userList() {
         return userTestMapper.selectAll();
+    }
+
+    @RequestMapping("/test/oa/request")
+    Object requestPAFFormDefinition() {
+        String reqXml = processCenterService.requestPAFFormDefinition("bd00aeb7450b486e9e5e4d1a1a3aba28");
+        return reqXml;
     }
 
 }
